@@ -2,13 +2,14 @@
 var generateBtn = document.querySelector("#generate");
 
 
-function generatePassword () {
+function generatePassword() {
 
 var caseUpp = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 var caseLow = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var caseSpec = ['*', '&', '$', '#', '@', '^', '?', '`', '-', '+'];
-var caseNum = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+var caseNum = [ '1' , '2', '3', '4', '5', '6', '7', '8', '9', '0'];
 var passArray = [];
+var random = [];
   //prompt user for character count
 var charCount = window.prompt ('How many characters do you want you password to be?');
 
@@ -41,13 +42,16 @@ var numChar = window.confirm ('Do you want Numbers?');
  console.log (passArray)
 
 //validate information
-
+console.log(charCount)
 //generate password
+  for (var i= 0; i < charCount; i++) {
+    var character = [Math.floor(Math.random() * passArray.length)];
+    random.push(passArray[character]);
+  }
+console.log(random)
 
 //display password
-
-
-  return "Password will go here";
+  return random.join('');
 }
 // Write password to the #password input
 function writePassword() {
